@@ -1,16 +1,17 @@
 @baseUrl = http://localhost:4000
 
 ### get 
-GET  {{baseUrl}}/products
+GET  {{baseUrl}}/api/products
 
 ### post product
-POST {{baseUrl}}/products
+POST {{baseUrl}}/api/products
 Content-Type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWQ3YzFkYzJkNWI4NzY4ODhkNTQwMyIsImlhdCI6MTYwNTIyMDUzMCwiZXhwIjoxNjA1MzA2OTMwfQ.P0Kb3phue33ZhepJsGDV0tVVK2DzIJ12oXMZzFdns-s
 
 {
  "name":"chocolate",
- "category":"cake",
- "price":250,
+ "category":"mini-cake",
+ "price":1000,
  "imgURL":"https://res.cloudinary.com/dx9n8tsyu/image/upload/v1604802152/inventory-umg/5_bpaalc.jpg"   
 }           
 
@@ -20,6 +21,25 @@ Content-Type: application/json
 
 {
  "username":"AllanSanchez",
- "email":"admin@admin.com",
- "password":"root"
+ "email":"admin1@admin.com",
+ "password":"root",
+ "roles":["admin","moderator"]
 }       
+
+### user product login
+POST {{baseUrl}}/api/auth/signin
+Content-Type: application/json
+
+{
+ "email":"admin1@admin.com",
+ "password":"root"
+}
+
+### post user
+POST {{baseUrl}}/api/users
+Content-Type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYWQ3YzFkYzJkNWI4NzY4ODhkNTQwMyIsImlhdCI6MTYwNTIyMDUzMCwiZXhwIjoxNjA1MzA2OTMwfQ.P0Kb3phue33ZhepJsGDV0tVVK2DzIJ12oXMZzFdns-s
+
+{
+ "name":"chocolate"
+}           
