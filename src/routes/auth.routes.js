@@ -1,7 +1,7 @@
 import {Router} from 'express';
 const router = Router();
 import * as authController from '../controllers/auth.controller';
-
-router.post('/signup',authController.signUp);
+import {verifySignup} from '../middlewares'
+router.post('/signup',[verifySignup.checkDuplicateUserOrEmail,verifySignup.checkRolesExisted],authController.signUp);
 router.post('/signin',authController.signIn);
 export default router;
